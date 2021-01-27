@@ -1,0 +1,97 @@
+* {
+   box-sizing: border-box;
+   font-family: sans-serif;
+}
+
+.page-container {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.greeting {
+    /*background: white url(images/homepage-background.jpg) center cover no-repeat;*/
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    z-index: 1;
+    background: transparent;
+}
+
+.greeting h1 {
+    animation: greeting-animation 2s 2.4s 1 forwards;
+}
+
+.greeting p:first-child {
+    animation: greeting-animation 0.7s 0.4s 1 forwards;
+}
+
+.greeting p {
+    animation: greeting-animation 1.3s 1.1s 1 forwards;
+}
+
+.greeting p, .greeting h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3vmax;
+    white-space: nowrap;
+    width: 0;
+    overflow: hidden;
+    margin: 2vh auto;
+}
+
+@keyframes greeting-animation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#liverpool {
+    animation: liverpool-animation 1s 3.2s;
+    color: rgb(201, 9, 9);
+    transition: 1s ease-in-out;
+}
+
+@keyframes liverpool-animation {
+    0% {
+        color: black;
+    }
+    100% {
+        color: rgb(201, 9, 9);
+    }
+}
+
+#liverpool:hover {
+
+    color: black;
+}
+
+#greeting-bg {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transition: 1s ease-in-out;
+}
+
+.red-home-bg{
+    background-size: cover;
+    background-color: rgb(201, 9, 9);
+    animation: expand-bg-color 1.3s ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes expand-bg-color {
+    0% {
+        clip-path: circle(2% at 65% 62%);
+        background-color: rgb(201, 9, 9);
+    }
+    100% {
+        clip-path: circle(100% at 65% 62%);
+        background-color: rgb(255, 255, 255);
+    }
+}
