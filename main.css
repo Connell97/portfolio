@@ -1,45 +1,60 @@
-* {
-   box-sizing: border-box;
-   font-family: sans-serif;
+:root {
+    --primary-color: #F5F1E3;
+    --secondary-color: #D64045;
+    --text-color-1: #314657;
+    --text-color-2: #ffffff;
 }
 
-.page-container {
-    display: grid;
-    grid-template-rows: 1fr;
+* {
+   box-sizing: border-box;
+   font-family: 'Syne', sans-serif;
+}
+
+body {
+    /* display: grid;
+    grid-template-rows: 1fr; */
+    background-color: var(--primary-color);
+    color: var(--text-color-1);
 }
 
 .greeting {
-    /*background: white url(images/homepage-background.jpg) center cover no-repeat;*/
-    height: 100vh;
+    min-height: 95vh;
     display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
-    justify-items: center;
-    z-index: 1;
-    background: transparent;
-}
-
-.greeting h1 {
-    animation: greeting-animation 2s 2.4s 1 forwards;
-}
-
-.greeting p:first-child {
-    animation: greeting-animation 0.7s 0.4s 1 forwards;
-}
-
-.greeting p {
-    animation: greeting-animation 1.3s 1.1s 1 forwards;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-end;
 }
 
 .greeting p, .greeting h1 {
-    font-family: 'Syne', sans-serif;
     font-size: 3vmax;
     white-space: nowrap;
-    width: 0;
+}
+
+.greeting-text {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    align-items: flex-end;
+    margin: 0 10vw;
     overflow: hidden;
-    margin: 2vh auto;
+}
+
+.greeting-text p, .greeting-text h1 {
+    width: 0;
+}
+
+.greeting-text p:first-child {
+    animation: greeting-animation 2.5s 0.4s forwards;
+}
+
+.greeting-text p {
+    animation: greeting-animation 2.5s 1.1s forwards;
+}
+
+.greeting-text h1 {
+    animation: greeting-animation 2.5s 2.2s forwards;
 }
 
 @keyframes greeting-animation {
@@ -51,47 +66,94 @@
     }
 }
 
-#liverpool {
-    animation: liverpool-animation 1s 3.2s;
-    color: rgb(201, 9, 9);
-    transition: 1s ease-in-out;
+.view-work {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: center;
+    justify-self: flex-end;
+    overflow: hidden;
 }
 
-@keyframes liverpool-animation {
+.view-work a { 
+    padding: 0;
+    text-decoration: none;
+    color: var(--text-color-2);
+    max-width: 100%;
+    opacity: 0%;
+    animation: view-work-animation 2s forwards;
+    animation-delay: 2.7s;
+    margin: 20px;
+    text-align: center;
+}
+
+.view-work p {
+    background-color: var(--secondary-color);
+    font-size: 2vmax;
+    padding: 5px 10px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 2px rgb(209, 197, 197);
+    transform: translateY(10vh);
+    transition: transform 1s;
+}
+
+.view-work:hover a p {
+    transform: translateY(0);
+}
+
+@keyframes view-work-animation {
     0% {
-        color: black;
+        max-height: 0;
+        opacity: 100%;
     }
     100% {
-        color: rgb(201, 9, 9);
+        max-height: 100%;
+        opacity: 100%;
     }
 }
 
-#liverpool:hover {
-
-    color: black;
+.my-work {
+    margin: 5vh 5vw;
 }
 
-#greeting-bg {
+.project {
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 90vh;
+    margin: 10vh 0; */
+    position: relative;
+}
+
+.project img {
+    width: 70%;
+    opacity: 80%;
+}
+
+.site-info {
     position: absolute;
-    height: 100vh;
-    width: 100vw;
-    transition: 1s ease-in-out;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%;
+    max-width: 70%;
 }
 
-.red-home-bg{
-    background-size: cover;
-    background-color: rgb(201, 9, 9);
-    animation: expand-bg-color 1.3s ease-out;
-    animation-fill-mode: both;
+ #personalised-computers {
+    background-color: #707C8F;
+    color: white;
+    background: #314657;
 }
 
-@keyframes expand-bg-color {
-    0% {
-        clip-path: circle(2% at 65% 62%);
-        background-color: rgb(201, 9, 9);
-    }
-    100% {
-        clip-path: circle(100% at 65% 62%);
-        background-color: rgb(255, 255, 255);
-    }
+#personalised-computers h2 {
+    color: white;
 }
+
+/*#ecommerce-site {
+    background-image: url(images/projects/pcs-website.png);
+}
+
+#tbpt {
+    background-image: url(images/projects/pcs-website.png);
+} */
