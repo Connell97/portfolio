@@ -1,18 +1,22 @@
-const button = document.querySelector('#slide');
-const info = document.querySelector('#slide').parentElement;
+const buttons = document.querySelectorAll('.slide');
+let active = false;
 
-let clicked = false;
+const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duration));
 
-const slideFunc = () => {
-    if (clicked == false) {
-        info.classList.add("slide-animation");
-        clicked = true
-        console.log("clicked")
+const toggleSlide = async (event) => {
+    let button = event.target.parentElement;
+    if (button.classList.contains("slide-animation") == true) {
+        button.classList.toggle("slide-animation");
+        await delay(1000);
+        event.target.src="images/icons/outline_chevron_right_black_48dp.png";
     }
     else {
-        info.classList.remove("slide-animation");
-        clicked = false;
+        button.classList.toggle("slide-animation");
+        await delay(300);
+        event.target.src="images/icons/outline_chevron_left_black_48dp.png";
     }
 }
 
-button.addEventListener('click', slideFunc);
+for (let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener("mouseover", toggleSlide);
+}

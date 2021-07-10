@@ -138,6 +138,7 @@ body {
     width: 70%;
     height: 100%;
     max-width: 70%;
+    transition: all 1s;
 }
 
  #personalised-computers {
@@ -148,6 +149,14 @@ body {
 
 #personalised-computers h2 {
     color: white;
+}
+
+.slide {
+    max-width: 100px;
+}
+
+.slide-animation {
+    width: 30%;
 }
 
 /*#ecommerce-site {
