@@ -133,12 +133,30 @@ body {
 
 .site-info {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
     top: 0;
     right: 0;
     width: 70%;
     height: 100%;
     max-width: 70%;
     transition: all 1s;
+    padding: 7vmax;
+}
+
+.site-info img {
+    position: absolute;
+    transform: translateX(-15vmax);
+}
+
+.site-info h2 {
+
+}
+
+.site-info h2, .site-info p {
+    white-space: nowrap;
 }
 
  #personalised-computers {
