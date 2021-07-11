@@ -5,6 +5,10 @@
     --text-color-2: #ffffff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
    box-sizing: border-box;
    font-family: 'Syne', sans-serif;
@@ -22,7 +26,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    align-content: flex-end;
+    align-content: center;
 }
 
 .greeting p, .greeting h1 {
@@ -66,7 +70,7 @@ body {
     }
 }
 
-.view-work {
+/* .view-work {
     display: flex;
     margin: 0 auto;
     flex-direction: column;
@@ -78,6 +82,7 @@ body {
 }
 
 .view-work a { 
+    position: relative;
     padding: 0;
     text-decoration: none;
     color: var(--text-color-2);
@@ -89,6 +94,13 @@ body {
     text-align: center;
 }
 
+.view-work a p, .view-work a img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+} 
+
 .view-work p {
     background-color: var(--secondary-color);
     font-size: 2vmax;
@@ -97,15 +109,52 @@ body {
     box-shadow: 0px 0px 2px 2px rgb(209, 197, 197);
     transform: translateY(10vh);
     transition: transform 1s;
+} */
+
+.view-work {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    opacity: 0%;
+    animation: view-work-animation 3.5s forwards ease-out;
+    animation-delay: 3s;
+}
+
+.view-work-button {
+    text-decoration: none;
+    color: var(--text-color-2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.view-work-button img {
+    height: 60px;
+    width: 100%;
+}
+
+.view-work-button p {
+    background-color: var(--secondary-color);
+    font-size: 2vmax;
+    padding: 5px 10px;
+    border-radius: 2px;
+    transform: translateY(100%);
+    margin: 0;
+    transition: transform 1s;
 }
 
 .view-work:hover a p {
-    transform: translateY(0);
+    transform: translateY(-20%);
 }
 
 @keyframes view-work-animation {
     0% {
-        max-height: 0;
+        max-height: 0%;
         opacity: 100%;
     }
     100% {
@@ -115,7 +164,10 @@ body {
 }
 
 .my-work {
-    margin: 5vh 5vw;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10vh auto;
+    max-width: 70vw;
 }
 
 .project {
@@ -124,57 +176,98 @@ body {
     min-height: 90vh;
     margin: 10vh 0; */
     position: relative;
+    width: 100%;
+    margin: 3vh 0;
+    overflow: hidden;
 }
 
 .project img {
     width: 70%;
     opacity: 80%;
+    display: block;
 }
 
 .site-info {
     position: absolute;
     display: flex;
-    flex-direction: column;
     text-align: right;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
     top: 0;
     right: 0;
     width: 70%;
     height: 100%;
-    max-width: 70%;
-    transition: all 1s;
-    padding: 7vmax;
+    transition: width 1s;
 }
 
-.site-info img {
+.site-info:before {
+    content: '';
     position: absolute;
-    transform: translateX(-15vmax);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);   
+}
+
+.slide {
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    transition: all 1s ease-out;
+    cursor: pointer;
+    font-size: 7em;
+    color:var(--secondary-color);
+    padding: 1vw;
 }
 
 .site-info h2 {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    padding: 10px 20px;
+    margin: 0;
+}
 
+.site-info p {
+    max-width: 30vw;
+    margin: 0;
+}
+
+.text-container {
+    overflow: hidden;
+    z-index: 5;
+    margin: 5vw;
+}
+
+.text-container p {
+    width: 40vw;
 }
 
 .site-info h2, .site-info p {
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
- #personalised-computers {
-    background-color: #707C8F;
+#personalised-computers {
     color: white;
-    background: #314657;
+}
+
+#personalised-computers:before {
+    background-color: #707C8F;
 }
 
 #personalised-computers h2 {
     color: white;
-}
-
-.slide {
-    max-width: 100px;
+    background-color: #314657;
 }
 
 .slide-animation {
-    width: 30%;
+    width: 40%;
+}
+
+.arrow-rotate {
+    transform: rotateY(180deg) translateX(-25%);
 }
 
 /*#ecommerce-site {
