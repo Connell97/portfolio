@@ -1,3 +1,2 @@
 # portfolio
-My portfolio
-##Always a work in progress
+Always a work in progress
